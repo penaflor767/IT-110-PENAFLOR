@@ -1,0 +1,221 @@
+/* 
+   SECTION 1: RESET
+   Universal selector (*) removes default spacing and makes
+   every element use border-box sizing.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 
+   SECTION 2: BASE / TYPOGRAPHY
+   Type selectors, grouping selector, colors in three ways:
+   name (white), hex (#2c3e50), rgba() below.
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    background-color: #f0f4f8;   /* hex color */
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    font-weight: bold;
+    color: #1a5276;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+/* Pseudo-element: small decorative marker before every h2 */
+h2::before {
+    content: "\2605  ";
+    color: goldenrod;
+}
+
+/*
+   CASCADE DEMO: two rules target the same element (p.intro).
+   The first sets the color to gray; the second (later) sets
+   it to darkgreen. Both have the same specificity
+   (0,1,1 — one class + one type), so the LATER rule wins
+   because of source order.
+*/
+p.intro {
+    color: gray;
+}
+
+p.intro {
+    color: darkgreen;   /* WINS: same specificity, declared later */
+    font-style: italic;
+}
+
+/* Pseudo-element: make the first letter of the intro stand out */
+.intro::first-letter {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/*
+   SECTION 3: LAYOUT (header, main, footer)
+*/
+header,
+footer {
+    text-align: center;   /* centers text in header and footer */
+    padding: 1.5rem 0;
+}
+
+header {
+    background-color: rgb(26, 82, 118);   /* rgb() color */
+    margin-bottom: 30px;
+}
+
+header h1 {
+    color: white;   /* named color */
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: rgba(44, 62, 80, 0.7);   /* rgba() color */
+}
+
+/*
+   SECTION 4: NAVIGATION
+   inline-block lets the links accept width/height-style
+   padding and margin on all sides.
+*/
+nav {
+    margin-top: 0.75rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+/* Pseudo-class: hover effect */
+nav a:hover {
+    background-color: white;
+    color: #1a5276;
+}
+
+/*
+   SECTION 5: COMPONENTS (cards)
+   TOTAL RENDERED WIDTH of one .card:
+   box-sizing is border-box, so the width property already
+   includes padding and border:
+   the total is 500px (the content area shrinks to
+   500 - 40 padding - 4 border = 456px).
+*/
+.card {
+    width: 500px;
+    padding: 20px;
+    border: 2px solid #1a5276;   /* width, style, color in one line */
+    border-radius: 10px;
+    background-color: white;
+    margin: 0 auto;              /* centers horizontally */
+    margin-bottom: 25px;         /* spaces cards apart */
+}
+
+/* Descendant selector: every p inside a .card */
+.card p {
+    margin-bottom: 0.75em;
+    text-align: left;
+}
+
+/* ID selector: About card stands out */
+#about {
+    border-color: crimson;
+    position: relative;   /* anchor for the absolutely positioned badge */
+}
+
+/* Badge in the top-right corner of #about */
+#about::after {
+    content: "NEW";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 8px;
+    background-color: crimson;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+/*
+   SECTION 6: SKILLS LIST (flexbox)
+*/
+.skills-list {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    list-style: none;
+}
+
+/* Child selector: only direct li children of .skills-list */
+.skills-list > li {
+    padding: 6px 14px;
+    background-color: #d6eaf8;
+    color: #1a5276;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/*
+   SECTION 7: DISPLAY AND VISIBILITY
+   VISIBLE DIFFERENCE: .hide-none is removed from the page
+   entirely, so the paragraphs below it move up and leave NO
+   gap. .hide-visibility is only made invisible, so it still
+   occupies its space and leaves an EMPTY GAP on the page.
+*/
+.hide-none {
+    display: none;
+}
+
+.hide-visibility {
+    visibility: hidden;
+}
+
+/* Fixed height + scrollbar when content is too long */
+.scroll-box {
+    height: 120px;
+    overflow: auto;
+}
+
+/*
+   REFLECTION QUESTIONS
+   1. In Part A, the second p.intro rule won over the first.
+      Both selectors have equal specificity (one class and one
+      type selector), so the tie is broken by source order:
+      the rule written later in the file overrides the earlier
+      one. If the first rule had a more specific selector
+      (like #about .intro), it would have won no matter the order.
+
+   2. With content-box, width only covers the content area, so
+      padding and border are added on top:
+      500px + (20px x 2 padding) + (2px x 2 border)
+      = 500 + 40 + 4 = 544px total rendered width.
+
+   3. I would use visibility: hidden when the element must keep
+      its space so the layout does not shift, for example when
+      toggling a tooltip, an error message, or a menu item
+      that appears and disappears. display: none is better when
+      the element should not take up any space at all.
+*/
