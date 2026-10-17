@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Practical Application Activity</title>
+</head>
+
+<body id="top">
+
+<header id="main-header">
+    <h1>HTML Practical Application Activity</h1>
+    <p>A simple webpage demonstrating important HTML features.</p>
+
+    <nav>
+        <a href="#images">Images</a> |
+        <a href="#hyperlinks">Hyperlinks</a> |
+        <a href="#multimedia">Multimedia</a> |
+        <a href="#useful-tags">Useful Tags</a> |
+        <a href="#dom">HTML DOM</a>
+    </nav>
+</header>
+
+<main id="main-content">
+
+    <!--IMAGES-->
+    <section id="images">
+        <h2>Images</h2>
+
+        <p>
+            These images demonstrate the use of the HTML
+            <code>&lt;img&gt;</code> element, descriptive alt text,
+            image dimensions, and figure captions.
+        </p>
+
+        <figure id="featured-image">
+            <img src="images/image1.jpg"
+                 alt="A scenic outdoor landscape"
+                 width="500">
+            <figcaption>A scenic outdoor landscape.</figcaption>
+        </figure>
+
+        <img src="images/image2.jpg"
+             alt="A beautiful nature scene"
+             width="300">
+
+        <img src="images/image3.jpg"
+             alt="A peaceful view of the outdoors"
+             width="300">
+
+        <p>
+            <a href="#top">Back to top</a>
+        </p>
+    </section>
+
+
+    <!--HYPERLINKS-->
+    <section id="hyperlinks">
+        <h2>Hyperlinks</h2>
+
+        <p>
+            This section demonstrates different types of HTML hyperlinks.
+        </p>
+
+        <!--Internal link to another section/page within the project-->
+        <p>
+            <a href="activity.html#images">
+                Internal link: Open the Images section
+            </a>
+        </p>
+
+        <!--External link that opens in a new browser tab-->
+        <p>
+            <a href="https://www.w3schools.com/html/"
+               target="_blank"
+               rel="noopener noreferrer">
+                External link: Learn HTML at W3Schools
+            </a>
+        </p>
+
+        <!--Email link using the mailto scheme-->
+        <p>
+            <a href="mailto:student@example.com">
+                Email link: Contact me
+            </a>
+        </p>
+
+        <!--Same-page anchor link using an element ID-->
+        <p>
+            <a href="#useful-tags">
+                Same-page anchor: Jump to Useful Tags
+            </a>
+        </p>
+
+        <p>
+            <a href="#top">Back to top</a>
+        </p>
+    </section>
+
+
+    <!--MULTIMEDIA-->
+    <section id="multimedia">
+        <h2>Multimedia</h2>
+
+        <h3>Audio</h3>
+
+        <audio controls>
+            <source src="media/audio.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h3>Video</h3>
+
+        <video controls width="500">
+            <source src="media/video.mp4" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+
+        <p>
+            The audio and video files used for this activity should each
+            be no more than 2 MB.
+        </p>
+
+        <p>
+            <a href="#top">Back to top</a>
+        </p>
+    </section>
+
+
+    <!--USEFUL TAGS-->
+    <section id="useful-tags">
+        <h2>Useful Tags</h2>
+
+        <!-- The blockquote tag is used to display a quotation separately from the main text. -->
+        <blockquote>
+            “The beautiful thing about learning is that nobody can take it away from you.”
+        </blockquote>
+
+        <p>
+            I am studying
+            <!--The abbr tag identifies an abbreviation and provides its full meaning.-->
+            <abbr title="Information Technology">IT</abbr>
+            and learning how websites are structured.
+        </p>
+
+        <p>
+            One important part of this activity is
+            <!--The mark tag highlights important text to make it stand out.-->
+            <mark>understanding how HTML elements are connected</mark>.
+        </p>
+
+        <p>
+            An example of an HTML element is
+            <!--The code tag displays computer code in a formatted way.-->
+            <code>&lt;section&gt;</code>.
+        </p>
+
+        <p>
+            &copy; 2026 HTML Practical Application Activity
+        </p>
+
+        <p>
+            <a href="#top">Back to top</a>
+        </p>
+    </section>
+
+
+    <!--HTML DOM-->
+    <section id="dom">
+        <h2 id="dom-heading">HTML DOM</h2>
+
+        <p id="dom-description">
+            The HTML Document Object Model (DOM) represents the webpage as
+            a tree of elements. Parent elements can contain child elements,
+            creating a structure that can be viewed in the browser's
+            Developer Tools.
+        </p>
+
+        <div id="dom-example">
+
+            <p>DOM example:</p>
+
+            <ul id="dom-list">
+                <li>HTML is the root element.</li>
+                <li>Body is a child of HTML.</li>
+                <li>Main is a child of Body.</li>
+                <li>Sections are children of Main.</li>
+            </ul>
+
+        </div>
+
+        <p>
+            Open the browser Developer Tools and use the Elements panel to
+            view the nested structure of this page.
+        </p>
+
+        <p>
+            <a href="#top">Back to top</a>
+        </p>
+    </section>
+
+</main>
+
+<footer id="main-footer">
+    <p>HTML Practical Application Activity — 2026</p>
+</footer>
+
+
+<!--
+The body element is the parent of the main element and the footer element.
+The main element is the parent of the different section elements on the page.
+Inside the DOM section, the div element is the parent of the paragraph and unordered list.
+The ul element is the parent of its li elements.
+-->
+
+</body>
+</html>
